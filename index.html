@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Pico Duarte: El Techo del Caribe</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Juego educativo sobre el Pico Duarte, República Dominicana.">
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+
+    <main id="app">
+        <!-- PANTALLA DE INICIO -->
+        <section id="start-screen" class="screen active">
+            <div class="content-box">
+                <div class="logo-area">
+                    <h1>🏔️ Pico Duarte</h1>
+                    <p class="subtitle">El Techo del Caribe</p>
+                </div>
+                <div class="intro-text">
+                    <p>Demuestra tus conocimientos sobre la montaña más alta de las Antillas.</p>
+                    <ul class="features-list">
+                        <li>📏 Desafío de Altura</li>
+                        <li>✅ Verdad en la Montaña</li>
+                        <li>🧩 Ruta Lógica</li>
+                    </ul>
+                </div>
+                <button id="btn-start" class="btn btn-primary btn-lg">Comenzar Expedición</button>
+            </div>
+        </section>
+
+        <!-- PANTALLA DE JUEGO -->
+        <section id="game-screen" class="screen hidden">
+            <header class="game-header">
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span id="question-counter">1/30</span>
+                        <span id="score-display">Puntos: 0</span>
+                    </div>
+                    <div class="progress-bar-bg">
+                        <div id="progress-bar" class="progress-bar-fill"></div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="question-card">
+                <div class="mode-badge" id="mode-badge">Modo</div>
+                <h2 id="question-text">Cargando pregunta...</h2>
+                
+                <!-- Contenedor dinámico para respuestas -->
+                <div id="options-container" class="options-area"></div>
+
+                <!-- Controles específicos para ordenamiento -->
+                <div id="ordering-controls" class="hidden">
+                    <p class="instruction-text">Toca las opciones en el orden correcto:</p>
+                    <div id="ordering-slots" class="ordering-slots"></div>
+                    <div id="ordering-pool" class="ordering-pool"></div>
+                    <button id="btn-confirm-order" class="btn btn-primary">Confirmar Orden</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- PANTALLA DE FEEDBACK (Modal) -->
+        <div id="feedback-overlay" class="overlay hidden">
+            <div class="feedback-card">
+                <div id="feedback-icon" class="feedback-icon"></div>
+                <h3 id="feedback-title"></h3>
+                <p id="feedback-message"></p>
+                <button id="btn-next-question" class="btn btn-secondary">Continuar</button>
+            </div>
+        </div>
+
+        <!-- PANTALLA DE RESULTADOS -->
+        <section id="result-screen" class="screen hidden">
+            <div class="content-box">
+                <h2>¡Expedición Completada!</h2>
+                <div class="score-circle">
+                    <span id="final-score">0</span>
+                    <small>pts</small>
+                </div>
+                <div class="certificate">
+                    <p>Rango Obtenido:</p>
+                    <h3 id="rank-title">Turista</h3>
+                    <p id="rank-desc" class="rank-description"></p>
+                </div>
+                <button id="btn-restart" class="btn btn-primary">Volver a Subir</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+<script type="module" src="/index.tsx"></script>
+</body>
+</html>
